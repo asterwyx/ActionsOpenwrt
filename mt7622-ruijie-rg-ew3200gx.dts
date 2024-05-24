@@ -104,7 +104,7 @@
 			compatible = "mediatek,mt7531";
 			reg = <0>;
 			reset-gpios = <&pio 54 GPIO_ACTIVE_HIGH>;
-			
+
 			interrupt-controller;
 			#interrupt-cells = <2>;
 			interrupt-parent = <&pio>;
@@ -250,49 +250,42 @@
 			#address-cells = <1>;
 			#size-cells = <1>;
 
-			partition@0 {
+			partition@00000 {
 				label = "Preloader";
-				reg = <0x0 0x20000>;
-				read-only;
+				reg = <0x00 0x20000>;
 			};
 
-			partition@20000 {
+			partition@40000 {
 				label = "ATF";
 				reg = <0x20000 0x10000>;
-				read-only;
 			};
 
-			partition@30000 {
+			partition@60000 {
 				label = "u-boot";
 				reg = <0x30000 0x50000>;
-				read-only;
 			};
 
-			partition@80000 {
+			partition@B0000 {
 				label = "u-boot-env";
 				reg = <0x80000 0x10000>;
 			};
 
-			factory: partition@90000 {
+			partition@D0000 {
 				label = "Factory";
 				reg = <0x90000 0x40000>;
-				read-only;
 			};
 
-			partition@D0000 {
+			partition@150000 {
 				label = "product_info";
 				reg = <0xd0000 0x10000>;
-				read-only;
 			};
 
-			partition@E0000 {
+			partition@160000 {
 				label = "kdump";
 				reg = <0xe0000 0x10000>;
-				read-only;
 			};
 
-			partition@F0000 {
-				compatible = "denx,fit";
+			partition@170000 {
 				label = "firmware";
 				reg = <0xf0000 0xf10000>;
 			};
